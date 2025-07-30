@@ -1,0 +1,9 @@
+# Hugo build artifacts
+resources/
+public/
+
+# Hugo build lock file
+.hugo_build.lock
+
+# Go modules
+go.sum

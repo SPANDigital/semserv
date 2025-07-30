@@ -1,0 +1,42 @@
+languageCode: "en-us"
+title: "Semantic Service Naming"
+copyright: Template Footer
+pluralizelisttitles: false
+markup:
+  goldmark:
+    renderer:
+      Unsafe: true
+    parser:
+      attribute:
+        block: true
+  highlight:
+    style: github
+menu:
+  main:
+    - identifier: versions
+      name: versions
+      url: /
+      weight: 1
+outputFormats:
+  MenuIndex:
+    baseName: menu
+    mediaType: application/json
+  SearchMap:
+    baseName: searchmap
+    mediaType: application/json
+outputs:
+  home:
+    - HTML
+    - RSS
+    - MenuIndex
+    - SearchMap
+module:
+  imports:
+    - path: github.com/spandigital/presidium-layouts-base
+    - path: github.com/spandigital/presidium-styling-base
+enableInlineShortcodes: true
+frontmatter:
+  lastmod:
+    - lastmod
+    - :fileModTime
+    - :default

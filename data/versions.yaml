@@ -1,0 +1,26 @@
+languages:
+  - code: "en"
+    name: "English"
+    native_name: "English"
+    url: "/en/"
+    current: true
+    versions:
+      - version: "1.0.0"
+        url: "/en/1.0.0/"
+        current: true
+        release_type: "stable"
+      - version: "0.1.2"
+        url: "/en/0.1.2/"
+        release_type: "stable"
+      - version: "0.1.1"
+        url: "/en/0.1.1/"
+        release_type: "stable"  
+  - code: "es"
+    name: "Spanish"
+    native_name: "español"
+    url: "/es/"
+    versions:
+      - version: "0.1.2"
+        url: "/es/0.1.2/"
+        current: true
+        release_type: "stable"

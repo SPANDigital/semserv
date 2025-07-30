@@ -1,0 +1,23 @@
+{{ $languages := .Site.Data.versions.languages }}
+{{ $redirectUrl := "/versions/" }}
+
+{{/* Find current language and current version */}}
+{{ range $languages }}
+  {{ if .current }}
+    {{ range .versions }}
+      {{ if .current }}
+        {{ $redirectUrl = .url }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+<script>
+  // Redirect to current language/version
+  window.location.href = "{{ $redirectUrl }}";
+</script>
+
+<noscript>
+  <meta http-equiv="refresh" content="0; url={{ $redirectUrl }}">
+  <p>Redirecting to <a href="{{ $redirectUrl }}">current version</a>...</p>
+</noscript>

@@ -1,0 +1,28 @@
+{{ $languages := .Site.Data.versions.languages }}
+{{ $redirectUrl := "/" }}
+
+{{/* Find current language and current version */}}
+{{ range $languages }}
+  {{ if .current }}
+    {{ range .versions }}
+      {{ if .current }}
+        {{ $redirectUrl = .url }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>{{ .Site.Title }}</title>
+    <meta http-equiv="refresh" content="0; url={{ $redirectUrl }}">
+    <script>
+        window.location.href = "{{ $redirectUrl }}";
+    </script>
+</head>
+<body>
+    <p>Redirecting to <a href="{{ $redirectUrl }}">{{ .Site.Title }}</a>...</p>
+</body>
+</html>
