@@ -1,7 +1,10 @@
 languageCode: "en-us"
 title: "Semantic Service Naming"
-copyright: Template Footer
+copyright: SPAN Digital Inc.
+description: "Create meaningful service names that are unlikely to change over time and don’t replicate data in existing identifiers by composing the name from three elements that describe what the service does"
+enableGitInfo: false
 pluralizelisttitles: false
+languageCode: en-us    
 markup:
   goldmark:
     renderer:
@@ -30,10 +33,35 @@ outputs:
     - RSS
     - MenuIndex
     - SearchMap
+  page:
+    - HTML
+    - Embed
+  section:
+    - HTML
+    - Embed
 module:
   imports:
     - path: github.com/spandigital/presidium-layouts-base
     - path: github.com/spandigital/presidium-styling-base
+params:
+  appleScope: ''
+  audience: ''
+  enterprise_key: sem-serv-docs
+  frontmatter:
+  - key: author
+    strict: true
+    type: email
+  - key: title
+    strict: true
+    type: text
+  lazyLoad: false
+  logo: /images/logo.svg
+  scope: ''
+  show:
+    author: false
+    role: false
+    status: false
+  sortByFilePath: false
 enableInlineShortcodes: true
 frontmatter:
   lastmod:
