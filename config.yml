@@ -4,7 +4,6 @@ copyright: SPAN Digital Inc.
 description: "Create meaningful service names that are unlikely to change over time and don’t replicate data in existing identifiers by composing the name from three elements that describe what the service does"
 enableGitInfo: false
 pluralizelisttitles: false
-languageCode: en-us    
 markup:
   goldmark:
     renderer:

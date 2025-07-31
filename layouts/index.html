@@ -1,0 +1,50 @@
+{{/* Root page redirect to current language and version */}}
+{{ $languages := .Site.Data.versions.languages }}
+{{ $redirectUrl := "" }}
+
+{{/* Find the current language and its current version */}}
+{{ range $languages }}
+  {{ if .current }}
+    {{ range .versions }}
+      {{ if .current }}
+        {{ $redirectUrl = .url }}
+        {{ break }}
+      {{ end }}
+    {{ end }}
+    {{ break }}
+  {{ end }}
+{{ end }}
+
+{{/* Fallback to first available language/version if no current is set */}}
+{{ if not $redirectUrl }}
+  {{ range $languages }}
+    {{ if .versions }}
+      {{ range .versions }}
+        {{ $redirectUrl = .url }}
+        {{ break }}
+      {{ end }}
+      {{ break }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>{{ .Site.Title }}</title>
+    {{ if $redirectUrl }}
+    <meta http-equiv="refresh" content="0; url={{ $redirectUrl }}">
+    <script>
+        window.location.href = "{{ $redirectUrl }}";
+    </script>
+    {{ end }}
+</head>
+<body>
+    {{ if $redirectUrl }}
+    <p>Redirecting to <a href="{{ $redirectUrl }}">{{ $redirectUrl }}</a>...</p>
+    {{ else }}
+    <p>No current version found. Please check your versions.yaml configuration.</p>
+    {{ end }}
+</body>
+</html>

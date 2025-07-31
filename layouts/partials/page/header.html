@@ -1,0 +1,20 @@
+{{/* This file is for the PAGE header, which sits outside the section */}}
+{{- if eq (.Scratch.Get "scope") "single" -}}
+    {{ partial "common/dummy" . }}
+{{- else -}}
+    {{/* Only render if title is not empty */}}
+    {{ if .Title }}
+        {{ $roles := .Params.roles | default "All Roles" }}
+        {{ $pageLink :=  .Page.RelPermalink }}
+        {{ $slug := (partial "common/slug" .) }}
+
+        <div class="page title" data-roles="{{ $roles }}" data-link="{{ $pageLink }}" permalink="{{ .Page.RelPermalink }}" title="{{ .Title }}" >
+            <div class="article-title article-actions" data-align="center-left">
+                <h1 class="page-title"> {{ .Title }}</h1>
+
+                {{ partial "common/permalink" (dict "copyTitle" "section" "Page" . "slug" $slug "permalink" $pageLink) }}
+            </div>
+        </div>
+        <hr />
+    {{ end }}
+{{- end -}}

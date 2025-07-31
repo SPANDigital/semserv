@@ -1,0 +1,14 @@
+{{ $slug := (partial "common/slug" .) }}
+{{ $articleLink := ($.Scratch.Get "articleLink") }}
+
+{{ if (eq .Parent.Title .Title) }}
+{{/* No title - For when the main title is the same as the first article */}}
+{{ else }}
+    <div class="article-title article-actions" data-align="center-left">
+
+        {{/* Always use h1 for page titles instead of calculating depth */}}
+        <h1>{{ .Title }}</h1>
+
+        {{ partial "common/permalink" (dict "copyTitle" "article" "Page" . "slug" $slug "permalink" $articleLink) }}
+    </div>
+{{ end }}

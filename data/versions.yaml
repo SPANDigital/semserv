@@ -14,7 +14,7 @@ languages:
         release_type: "stable"
       - version: "0.1.1"
         url: "/en/0.1.1/"
-        release_type: "stable"  
+        release_type: "stable"
   - code: "es"
     name: "Spanish"
     native_name: "español"
@@ -23,4 +23,4 @@ languages:
       - version: "0.1.2"
         url: "/es/0.1.2/"
         current: true
-        release_type: "stable"
+        release_type: "stable"    
