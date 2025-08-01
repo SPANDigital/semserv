@@ -1,5 +1,10 @@
 {{/* Load data */}}
 {{ $versionsData := .Site.Data.versions }}
+{{ $baseUrl := urls.Parse .Site.BaseURL }}
+{{ $rootPath := path.Clean $baseUrl.Path }}
+{{ if or (eq $rootPath ".") (eq $rootPath "/") }}
+  {{ $rootPath = "" }}
+{{ end }}
 {{ $languages := "" }}
 {{ if $versionsData }}
   {{ $languages = $versionsData.languages }}
@@ -69,17 +74,13 @@
   {{ end }}
 
   {{/* If still no match, try URL path patterns */}}
-  {{ if not $currentLang }}
-    {{ if strings.HasPrefix $currentPath "/en/" }}
-      {{ $currentLang = "en" }}
-    {{ else if strings.HasPrefix $currentPath "/es/" }}
-      {{ $currentLang = "es" }}
-    {{ else }}
-      {{/* Default to current language from data */}}
-      {{ range $lang := $languages }}
-        {{ if $lang.current }}
-          {{ $currentLang = $lang.code }}
-        {{ end }}
+  {{ if eq $currentLang "en" }}
+    {{/* Check all available languages dynamically */}}
+    {{ range $lang := $languages }}
+      {{ $langPattern := printf "/%s/" $lang.code }}
+      {{ if or (strings.Contains $currentPath $langPattern) (strings.HasPrefix $currentPath $langPattern) }}
+        {{ $currentLang = $lang.code }}
+        {{ break }}
       {{ end }}
     {{ end }}
   {{ end }}
@@ -97,7 +98,7 @@
 <ul class="nav lang" dir="ltr">
   {{ range $languages }}
     <li class="language language-{{ .code }}">
-      <a rel="alternate" lang="{{ .code }}" hreflang="{{ .code }}" href="{{ .url }}">{{ .native_name }} ({{ .code }})</a>
+      <a rel="alternate" lang="{{ .code }}" hreflang="{{ .code }}" href="{{ printf "%s%s" $rootPath .url }}">{{ .native_name }} ({{ .code }})</a>
     </li>
   {{ end }}
 </ul>
@@ -107,7 +108,7 @@
 <ul class="nav">
   {{ range $currentLanguage.versions }}
     <li class="version version-{{ .version }}">
-      <a href="{{ .url }}">{{ .version }}</a>
+      <a href="{{ printf "%s%s" $rootPath .url }}">{{ .version }}</a>
     </li>
   {{ end }}
 </ul>

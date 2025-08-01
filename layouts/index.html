@@ -1,5 +1,10 @@
 {{/* Root page redirect to current language and version */}}
 {{ $languages := .Site.Data.versions.languages }}
+{{ $baseUrl := urls.Parse .Site.BaseURL }}
+{{ $rootPath := path.Clean $baseUrl.Path }}
+{{ if or (eq $rootPath ".") (eq $rootPath "/") }}
+  {{ $rootPath = "" }}
+{{ end }}
 {{ $redirectUrl := "" }}
 
 {{/* Find the current language and its current version */}}
@@ -7,7 +12,7 @@
   {{ if .current }}
     {{ range .versions }}
       {{ if .current }}
-        {{ $redirectUrl = .url }}
+        {{ $redirectUrl = printf "%s%s" $rootPath .url }}
         {{ break }}
       {{ end }}
     {{ end }}
@@ -20,7 +25,7 @@
   {{ range $languages }}
     {{ if .versions }}
       {{ range .versions }}
-        {{ $redirectUrl = .url }}
+        {{ $redirectUrl = printf "%s%s" $rootPath .url }}
         {{ break }}
       {{ end }}
       {{ break }}
