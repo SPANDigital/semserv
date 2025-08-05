@@ -1,12 +1,21 @@
 {
   "mcpServers": {
-    "example": {
-      "type": "stdio",
-      "command": "node",
-      "args": ["/path/to/mcp-server.js"],
-      "env": {
-        "NODE_ENV": "production"
-      }
+    "filesystem": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "."
+      ]
+    },
+    "git": {
+      "command": "npx",
+      "args": [
+        "-y", 
+        "@modelcontextprotocol/server-git",
+        "--repository",
+        "."
+      ]
     }
   }
 }
