@@ -210,20 +210,20 @@ Edit `.ruler/ruler.toml` to specify which AI assistants to target:
 
 ```toml
 # Default agents to configure
-default_agents = ["copilot", "claude", "junie", "gemini-cli"]
+# default_agents = ["copilot", "claude", "junie", "gemini-cli"]
 
 # GitHub Copilot configuration
-[agents.copilot]
-enabled = true
-output_path = ".github/copilot-instructions.md"
+# [agents.copilot]
+# enabled = true
+# output_path = ".github/copilot-instructions.md"
 
 # Claude Code configuration  
-[agents.claude]
-enabled = true
-output_path = "CLAUDE.md"
+# [agents.claude]
+# enabled = true
+# output_path = "CLAUDE.md"
 
 # Junie configuration
-[agents.junie]
+# [agents.junie]
 enabled = true
 output_path = ".junie/guidelines.md"
 
