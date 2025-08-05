@@ -275,42 +275,23 @@ enabled = false
 
 #### Writing AI Instructions
 
-Create focused instruction files in the `.ruler/` directory:
+Create focused instruction files in the `.ruler/` directory to provide project-specific context and guidelines. The existing `.ruler/instructions.md` file contains comprehensive guidelines for this Hugo-based documentation site.
 
-**`.ruler/documentation_guidelines.md`:**
+You can add additional instruction files as needed:
+
+**`.ruler/team_guidelines.md`:**
 ```markdown
-# Documentation Guidelines
+# Team Development Guidelines
 
-## Writing Style
-- Use clear, concise language
-- Follow the established tone and structure
-- Include practical examples where helpful
-- Maintain consistency with existing content
+## Code Review Process
+- All changes require review before merging
+- Test documentation builds locally first
+- Verify multilingual content consistency
 
-## Hugo Specifics
-- Understand this is a Hugo static site
-- Respect the multilingual structure (en/es)
-- Follow content organization patterns
-- Use proper front matter in content files
-```
-
-**`.ruler/semantic_service_context.md`:**
-```markdown
-# Semantic Service Naming Context
-
-## Project Purpose
-This documentation covers semantic service naming conventions and guidelines.
-
-## Key Areas
-- Service naming patterns
-- Documentation structure
-- Multilingual content management
-- Hugo site generation and deployment
-
-## Code Quality
-- Maintain clean, readable content
-- Follow established conventions
-- Test changes with `hugo serve` before committing
+## Release Process
+- Update version information in data/versions.yaml
+- Create version-specific content files
+- Test all language variants
 ```
 
 ### Applying AI Instructions
