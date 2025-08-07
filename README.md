@@ -3,6 +3,27 @@ Semantic Service Naming Documentation
 
 This repository contains the documentation for semantic service naming conventions and guidelines.
 
+## License
+
+This project is licensed under the [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/).
+
+See the [LICENSE](LICENSE) file for details.
+
+## Contributing & Community
+
+We welcome contributions from the community! Please read our [Contributing Guidelines](CONTRIBUTING.md) and [Code of Conduct](CODE_OF_CONDUCT.md) before submitting issues or pull requests.
+
+### Support Documents
+
+- [LICENSE](LICENSE): Project license (CC BY 4.0)
+- [CONTRIBUTING.md](CONTRIBUTING.md): How to contribute
+- [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md): Community standards
+- [Bug Report Template](.github/ISSUE_TEMPLATE/bug_report.md)
+- [Feature Request Template](.github/ISSUE_TEMPLATE/feature_request.md)
+- [Pull Request Template](.github/PULL_REQUEST_TEMPLATE.md)
+
+---
+
 ## Prerequisites
 
 This documentation site is built with [Hugo](https://gohugo.io/), a fast and modern static site generator.
