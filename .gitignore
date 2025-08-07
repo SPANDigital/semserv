@@ -36,29 +36,20 @@ yarn-error.log*
 *.temp
 *.log
 
-# AI Assistant Configuration Files (Ruler generated)
-*.bak
-.gemini/
-.github/copilot-instructions.md*
-.junie/
-.mcp.json
-.vscode/mcp.json*
-CLAUDE.md*
-GEMINI.md*
-
 # Environment files
 .env
 .env.local
 .env.*.local
 
-
 # START Ruler Generated Files
+*.bak
 .gemini/settings.json
 .gemini/settings.json.bak
 .github/copilot-instructions.md
 .github/copilot-instructions.md.bak
 .junie/guidelines.md
 .junie/guidelines.md.bak
+.mcp.json
 .mcp.json.bak
 .vscode/mcp.json
 .vscode/mcp.json.bak
