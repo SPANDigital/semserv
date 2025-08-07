@@ -8,14 +8,9 @@
         "."
       ]
     },
-    "git": {
+    "context7": {
       "command": "npx",
-      "args": [
-        "-y", 
-        "@modelcontextprotocol/server-git",
-        "--repository",
-        "."
-      ]
+      "args": ["-y", "@upstash/context7-mcp"]
     }
   }
 }
