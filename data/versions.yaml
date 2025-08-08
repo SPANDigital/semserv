@@ -27,4 +27,4 @@ languages:
       - version: "1.0.0"
         url: "/es/1.0.0/"
         current: true
-        release_type: "stable"    
+        release_type: "stable"
