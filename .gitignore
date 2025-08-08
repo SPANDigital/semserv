@@ -7,3 +7,54 @@ public/
 
 # Go modules
 go.sum
+
+# Operating System Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Editor and IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Node.js (if using npm for any tooling)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# START Ruler Generated Files
+*.bak
+.gemini/settings.json
+.gemini/settings.json.bak
+.github/copilot-instructions.md
+.github/copilot-instructions.md.bak
+.junie/guidelines.md
+.junie/guidelines.md.bak
+.mcp.json
+.mcp.json.bak
+.vscode/mcp.json
+.vscode/mcp.json.bak
+CLAUDE.md
+CLAUDE.md.bak
+GEMINI.md
+GEMINI.md.bak
+# END Ruler Generated Files
