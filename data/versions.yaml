@@ -20,7 +20,10 @@ languages:
     native_name: "español"
     url: "/es/"
     versions:
+      - version: "1.0.0"
+        url: "/es/1.0.0/"
+        current: true
+        release_type: "stable"
       - version: "0.1.2"
         url: "/es/0.1.2/"
-        current: true
-        release_type: "stable"    
+        release_type: "stable"
