@@ -1,4 +1,4 @@
-module github.com/spandigital/sem-serv
+module github.com/spandigital/semserv
 
 go 1.16
 
