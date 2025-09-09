@@ -1,4 +1,4 @@
-baseURL: "https://spandigital.github.io/sem-serv-docs"
+baseURL: "https://spandigital.github.io/semserv"
 languageCode: "en-us"
 title: "Semantic Service Naming"
 copyright: SPAN Digital Inc.
@@ -47,7 +47,7 @@ params:
   appleScope: ''
   audience: ''
   basePath: "/"
-  enterprise_key: sem-serv-docs
+  enterprise_key: semserv
   site_prefix: ""
   frontmatter:
   - key: author
@@ -58,6 +58,7 @@ params:
     type: text
   lazyLoad: false
   logo: /images/logo.svg
+  favicon: images/favicon.ico
   scope: ''
   show:
     author: false
