@@ -15,21 +15,21 @@
       {{ end }}
     {{ end }}
 
-    {{ if $.Site.Params.enterprise_enabled }}
-      {{ $enterpriseScript := $.Site.Params.enterprise_script | default "/presidium-enterprise.js" }}
-      {{ $enterpriseStyling := $.Site.Params.enterprise_styling | default "/presidium-enterprise.css" }}
-      
-      <link data-test="{{$basePath}}" rel="stylesheet" href="{{ path.Join $basePath $enterpriseStyling }}">
-      <link data-test="{{$basePath}}" rel="preload" href="{{ path.Join $basePath $enterpriseScript }}" as="script">
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-P2K27B0X39"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-
         gtag('config', 'G-P2K27B0X39');
     </script>
+
+    {{ if $.Site.Params.enterprise_enabled }}
+      {{ $enterpriseScript := $.Site.Params.enterprise_script | default "/presidium-enterprise.js" }}
+      {{ $enterpriseStyling := $.Site.Params.enterprise_styling | default "/presidium-enterprise.css" }}
+      
+      <link data-test="{{$basePath}}" rel="stylesheet" href="{{ path.Join $basePath $enterpriseStyling }}">
+      <link data-test="{{$basePath}}" rel="preload" href="{{ path.Join $basePath $enterpriseScript }}" as="script">
       <script data-test="{{$basePath}}"> window.baseURL = '{{$basePath}}'; </script>
     {{ end }}
 
