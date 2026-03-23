@@ -1,0 +1,58 @@
+# =============================================================================
+# Frontmatter Schema Generation Configuration
+# =============================================================================
+# PURPOSE: Used by `make frontmatter` to generate frontmatter-schema.yaml
+#          and frontmatter-schema.json from the module's frontmatter configuration.
+#
+# This config runs Hugo in schema generation mode — it only processes content
+# to extract autocomplete options (from taxonomies and data files) without
+# performing a full site render.
+#
+# The execute-frontmatter-migration skill adapts this template based on the
+# module's detected taxonomies and data files. See SKILL.md for details.
+# =============================================================================
+
+module:
+  mounts:
+    - source: content
+      target: content
+    - source: data
+      target: data
+    - excludeFiles: "**"
+      source: static
+      target: static
+  imports:
+    - path: github.com/spandigital/presidium-styling-base
+      mounts:
+        - source: assets
+          target: assets
+    - path: github.com/spandigital/presidium-layouts-base
+      mounts:
+        - source: layouts
+          target: layouts
+        - source: data
+          target: data
+        - source: config/_default/frontmatter
+          target: assets/frontmatter-sources/github.com/spandigital/presidium-layouts-base
+
+params:
+  # Disables full page rendering during schema generation.
+  # Allows Hugo to process content and extract taxonomy/data for autocomplete
+  # without requiring complete theme assets.
+  schemaGenerationMode: true
+
+outputFormats:
+  FrontmatterSchema:
+    baseName: frontmatter-schema
+    mediaType: application/yaml
+    isPlainText: true
+    notAlternative: true
+
+# RSS, sitemap, robotsTXT, 404 not needed for schema generation.
+# taxonomies and term are NOT disabled so Hugo can collect taxonomy terms
+# for autocomplete fields that use taxonomy-based options.
+disableKinds: ["RSS", "sitemap", "robotsTXT", "404"]
+
+outputs:
+  home:
+    - FrontmatterSchema
