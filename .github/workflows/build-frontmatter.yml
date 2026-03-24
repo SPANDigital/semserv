@@ -9,20 +9,20 @@ name: Build Frontmatter
 on:
   # Run on pull requests to validate frontmatter is up to date
   pull_request:
-    branches: ["main"]
+    branches: ["dev-published", "dev-draft"]
 
   # Run on ALL pushes to deployment branches
   # No path filter - every push builds frontmatter then triggers deployment
   # Frontmatter is only committed if it actually changed
   push:
-    branches: ["main"]
+    branches: ["dev-published", "dev-draft"]
 
   # Allow manual trigger
   workflow_dispatch:
 
 jobs:
   build-frontmatter:
-    uses: SPANDigital/presidium-shared-workflows/.github/workflows/build-frontmatter.yml@v17.0.0-configurable-frontmatter-7
+    uses: SPANDigital/presidium-shared-workflows/.github/workflows/build-frontmatter.yml@v17.1.0-configurable-frontmatter-8
     with:
       go-version: '1.25'
       hugo-version: "${{ vars.DEFAULT_HUGO_VERSION || '0.155.0' }}"
