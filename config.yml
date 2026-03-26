@@ -1,10 +1,8 @@
-baseURL: https://spandigital.github.io/semserv
-languageCode: en-us
-title: Semantic Service Naming
+baseURL: "https://spandigital.github.io/semserv"
+languageCode: "en-us"
+title: "Semantic Service Naming"
 copyright: SPAN Digital Inc.
-description: Create meaningful service names that are unlikely to change over time
-  and don’t replicate data in existing identifiers by composing the name from three
-  elements that describe what the service does
+description: "Create meaningful service names that are unlikely to change over time and don’t replicate data in existing identifiers by composing the name from three elements that describe what the service does"
 enableGitInfo: false
 pluralizelisttitles: false
 markup:
@@ -18,10 +16,10 @@ markup:
     style: github
 menu:
   main:
-  - identifier: versions
-    name: versions
-    url: /
-    weight: 1
+    - identifier: versions
+      name: versions
+      url: /
+      weight: 1
 outputFormats:
   MenuIndex:
     baseName: menu
@@ -31,26 +29,26 @@ outputFormats:
     mediaType: application/json
 outputs:
   home:
-  - HTML
-  - RSS
-  - MenuIndex
-  - SearchMap
+    - HTML
+    - RSS
+    - MenuIndex
+    - SearchMap
   page:
-  - HTML
-  - Embed
+    - HTML
+    - Embed
   section:
-  - HTML
-  - Embed
+    - HTML
+    - Embed
 module:
   imports:
-  - path: github.com/spandigital/presidium-layouts-base
-  - path: github.com/spandigital/presidium-styling-base
+    - path: github.com/spandigital/presidium-layouts-base
+    - path: github.com/spandigital/presidium-styling-base
 params:
   appleScope: ''
   audience: ''
-  basePath: /
+  basePath: "/"
   enterprise_key: semserv
-  site_prefix: ''
+  site_prefix: ""
   lazyLoad: false
   logo: /images/logo.svg
   favicon: images/favicon.ico
@@ -63,6 +61,6 @@ params:
 enableInlineShortcodes: true
 frontmatter:
   lastmod:
-  - lastmod
-  - :fileModTime
-  - :default
+    - lastmod
+    - :fileModTime
+    - :default
