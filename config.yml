@@ -49,13 +49,6 @@ params:
   basePath: "/"
   enterprise_key: semserv
   site_prefix: ""
-  frontmatter:
-  - key: author
-    strict: true
-    type: email
-  - key: title
-    strict: true
-    type: text
   lazyLoad: false
   logo: /images/logo.svg
   favicon: images/favicon.ico

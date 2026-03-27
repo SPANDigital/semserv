@@ -1,0 +1,28 @@
+{
+  "author": {
+    "_config_location": [
+      "github.com/spandigital/presidium-layouts-base/config/_default/frontmatter/params.yaml"
+    ],
+    "_order": 1,
+    "display_rows": 1,
+    "error_message": "Please ensure your article has an author email address",
+    "options": null,
+    "pattern": "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$",
+    "placeholder_message": "Enter author email",
+    "required": true,
+    "type": "email"
+  },
+  "title": {
+    "_config_location": [
+      "github.com/spandigital/presidium-layouts-base/config/_default/frontmatter/params.yaml"
+    ],
+    "_order": 0,
+    "display_rows": 1,
+    "error_message": "Please ensure your article has a title",
+    "options": null,
+    "pattern": "",
+    "placeholder_message": "Enter a title",
+    "required": true,
+    "type": "string"
+  }
+}
