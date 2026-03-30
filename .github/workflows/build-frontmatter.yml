@@ -9,13 +9,13 @@ name: Build Frontmatter
 on:
   # Run on pull requests to validate frontmatter is up to date
   pull_request:
-    branches: ["main"]
+    branches: ["dev-published", "dev-draft", "test-draft", "test-published", "published"]
 
   # Run on ALL pushes to deployment branches
   # No path filter - every push builds frontmatter then triggers deployment
   # Frontmatter is only committed if it actually changed
   push:
-    branches: ["main"]
+    branches: ["dev-published", "dev-draft", "test-draft", "test-published", "published"]
 
   # Allow manual trigger
   workflow_dispatch:

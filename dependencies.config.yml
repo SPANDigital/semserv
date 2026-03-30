@@ -7,9 +7,6 @@
 # This config runs Hugo in schema generation mode — it only processes content
 # to extract autocomplete options (from taxonomies and data files) without
 # performing a full site render.
-#
-# The execute-frontmatter-migration skill adapts this template based on the
-# module's detected taxonomies and data files. See SKILL.md for details.
 # =============================================================================
 
 module:
