@@ -37,18 +37,7 @@ serve-b:
 
 frontmatter:
 	rm -f data/presidium/frontmatter-schema.yaml
-	# TODO(PRSDM-10279): Add this back once feat/configurable-frontmatter is released
-	# hugo mod get
-	hugo --ignoreCache --gc --config config.yml,dependencies.config.yml
-	mkdir -p data/presidium
-	cp public/frontmatter-schema.yaml data/presidium/frontmatter-schema.yaml
-	mkdir -p static/schemas
-	yq eval -o=json data/presidium/frontmatter-schema.yaml > static/schemas/frontmatter-schema.json
-
-frontmatter:
-	rm -f data/presidium/frontmatter-schema.yaml
-	# TODO(PRSDM-10279): Add this back once feat/configurable-frontmatter is released
-	# hugo mod get
+	hugo mod get
 	hugo --ignoreCache --gc --config config.yml,dependencies.config.yml
 	mkdir -p data/presidium
 	cp public/frontmatter-schema.yaml data/presidium/frontmatter-schema.yaml
