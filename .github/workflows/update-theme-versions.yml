@@ -1,0 +1,26 @@
+# Auto-update theme versions across branches using shared workflow
+name: Update Theme Versions
+
+on:
+  # Run weekly on Monday at 9 AM UTC
+  schedule:
+    - cron: "0 9 * * 1"
+  # Allow manual trigger
+  workflow_dispatch:
+
+jobs:
+  update:
+    uses: SPANDigital/presidium-shared-workflows/.github/workflows/update-theme-versions.yml@v1.0.0
+    with:
+      hugo-version: "${{ vars.DEFAULT_HUGO_VERSION || '0.155.0' }}"
+      target-branches: "published dev-draft dev-published test-draft test-published"
+      update-command: "make refresh"
+      pr-title-template: "chore: Auto-update theme versions on {branch}"
+      pr-body-template: "Automated theme version updates via GitHub Actions."
+      commit-message: "chore: auto-update theme versions [GitHub Actions]"
+      pr-branch-prefix: "auto-update-theme-versions"
+      git-user-name: "github-actions[bot]"
+      git-user-email: "github-actions[bot]@users.noreply.github.com"
+      files-to-add: "go.mod go.sum"
+    # No secrets needed - shared workflow will use default GITHUB_TOKEN
+
