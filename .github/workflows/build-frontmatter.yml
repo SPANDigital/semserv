@@ -22,7 +22,7 @@ on:
 
 jobs:
   build-frontmatter:
-    uses: SPANDigital/presidium-shared-workflows/.github/workflows/build-frontmatter.yml@v17.1.0-configurable-frontmatter-9
+    uses: SPANDigital/presidium-shared-workflows/.github/workflows/build-frontmatter.yml@v18.0.0
     with:
       go-version: '1.25'
       hugo-version: "${{ vars.DEFAULT_HUGO_VERSION || '0.155.0' }}"

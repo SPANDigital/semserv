@@ -12,7 +12,7 @@ on:
 jobs:
   deploy:
     if: ${{ github.event_name == 'workflow_dispatch' || (github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.event == 'push') }}
-    uses: SPANDigital/presidium-shared-workflows/.github/workflows/hugo-deploy.yml@v17.1.0-configurable-frontmatter-9
+    uses: SPANDigital/presidium-shared-workflows/.github/workflows/hugo-deploy.yml@v18.0.0
     with:
       hugo-version: "${{ vars.DEFAULT_HUGO_VERSION || '0.155.0' }}"
       deploy-branches: '["dev-published", "dev-draft", "test-draft", "test-published", "published"]'
