@@ -1,0 +1,18 @@
+# Test Hugo build on pull requests using shared workflow
+name: Test Hugo Build
+
+on:
+  pull_request:
+    branches: ["published", "dev-draft", "dev-published", "test-draft", "test-published"]
+
+jobs:
+  test:
+    uses: SPANDigital/presidium-shared-workflows/.github/workflows/hugo-test.yml@v16.5.0
+    with:
+      hugo-version: "${{ vars.DEFAULT_HUGO_VERSION || '0.155.0' }}"
+      target-branches: '["published", "dev-draft", "dev-published", "test-draft", "test-published"]'
+      artifact-name: "semserv-test-build"
+      artifact-retention-days: 1
+      hugo-environment: "production"
+      enable-artifact-upload: true
+      hugo-build-args: "--templateMetrics --ignoreCache --logLevel info"

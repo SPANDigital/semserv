@@ -4,7 +4,7 @@ on:
   # Trigger deployment on pushes to main branch
   push:
     branches:
-      - main
+      - published
   
   # Allow manual triggering from the Actions tab
   workflow_dispatch:
