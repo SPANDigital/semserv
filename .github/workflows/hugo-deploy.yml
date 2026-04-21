@@ -1,0 +1,36 @@
+# Deploy Hugo site using shared workflow
+name: Deploy Hugo site
+
+on:
+  workflow_run:
+    workflows: ["Build Frontmatter"]
+    types:
+      - completed
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    if: ${{ github.event_name == 'workflow_dispatch' || (github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.event == 'push') }}
+    uses: SPANDigital/presidium-shared-workflows/.github/workflows/hugo-deploy.yml@v18.0.0
+    with:
+      hugo-version: "${{ vars.DEFAULT_HUGO_VERSION || '0.155.0' }}"
+      deploy-branches: '["dev-published", "dev-draft", "test-draft", "test-published", "published"]'
+      target-branch: ${{ github.event_name == 'workflow_dispatch' && github.ref_name || github.event.workflow_run.head_branch }}
+      github-pages-branch: 'main'
+      archive-name: 'span-handbook-docs'
+      archive-contents: 'layouts content static data config.yml go.mod go.sum'
+      aws-region: 'us-west-2'
+      bucket-mapping: >-
+        {
+          "dev-published": "presidium-eng-bucket-tf",
+          "dev-draft": "presidium-eng-bucket-tf",
+          "test-draft": "presidium-test-bucket-tf",
+          "test-published": "presidium-test-bucket-tf",
+          "published": "presidium-docs-bucket-tf"
+        }
+      github-config-file: 'config.yml'
+      enable-github-pages: false
+      enable-s3: true
+    secrets:
+      AWS_GITHUB_ACTIONS_ROLE: ${{ secrets.AWS_GITHUB_ACTIONS_ROLE }}

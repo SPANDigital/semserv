@@ -1,0 +1,31 @@
+# Build frontmatter configuration files from Hugo frontmatter using shared workflow
+#
+# SINGLE-STEP DEPLOYMENT FLOW:
+# This workflow runs on EVERY push to deployment branches, then triggers deployment.
+# Frontmatter is always built, but only committed if it changed.
+# This ensures deployment always has current frontmatter without manual intervention.
+name: Build Frontmatter
+
+on:
+  # Run on pull requests to validate frontmatter is up to date
+  pull_request:
+    branches: ["dev-published", "dev-draft", "test-draft", "test-published", "published"]
+
+  # Run on ALL pushes to deployment branches
+  # No path filter - every push builds frontmatter then triggers deployment
+  # Frontmatter is only committed if it actually changed
+  push:
+    branches: ["dev-published", "dev-draft", "test-draft", "test-published", "published"]
+
+  # Allow manual trigger
+  workflow_dispatch:
+
+jobs:
+  build-frontmatter:
+    uses: SPANDigital/presidium-shared-workflows/.github/workflows/build-frontmatter.yml@v18.0.0
+    with:
+      go-version: '1.25'
+      hugo-version: "${{ vars.DEFAULT_HUGO_VERSION || '0.155.0' }}"
+      frontmatter-command: 'make frontmatter'
+      frontmatter-yaml-path: 'data/presidium'
+      frontmatter-json-path: 'static/schemas'
